@@ -47,7 +47,7 @@ $(document).ready(function() {
     });
     
     $('#start-btn').click(function() {
-        $.post('https://akre_drivingschool/startTest', JSON.stringify({}), function(response) {
+        $.post('https://akre_drivingschool_esx/startTest', JSON.stringify({}), function(response) {
             if (response.success) {
                 $('#startScreen').addClass('hidden');
                 $('#questionScreen').removeClass('hidden');
@@ -217,11 +217,11 @@ function closeUI(completed) {
     selectedOption = null;
     
     if (completed) {
-        $.post('https://akre_drivingschool/completeTest', JSON.stringify({
+        $.post('https://akre_drivingschool_esx/completeTest', JSON.stringify({
             passed: $('#result-title').hasClass('pass'),
             score: parseFloat($('#score-display').text())
         }));
     } else {
-        $.post('https://akre_drivingschool/close', JSON.stringify({}));
+        $.post('https://akre_drivingschool_esx/close', JSON.stringify({}));
     }
 }
